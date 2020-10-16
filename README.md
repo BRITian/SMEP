@@ -19,19 +19,37 @@ Quick Start
 
 Training
 ====
-The program smep_prediction_py2.7.py or smep_prediction_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are four parameters that should be provided with the following order, training filename, test filename, sequence length and class number of the model.
-Here are the examples to construct the predicting models in the python environment 2.7.
+
+The program smep_train_py2.7.py or smep_train_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are four parameters that should be provided with the following order, training filename, test filename, sequence length and class number of the model.  
+Here are the examples to construct the predicting models in the python environment 2.7.  
 1.	The 5mC predicting model  
-		python smep_prediction_py2.7.py example_Test_file_5mC example_Train_file_5mC 41 4  
+python smep_train_py2.7.py example_Test_file_5mC example_Train_file_5mC 41 4  
 2.	The 6mA predicting model  
-		python smep_prediction_py2.7.py example_Test_file_6mA example_Train_file_6mA 41 2  
+python smep_train_py2.7.py example_Test_file_6mA example_Train_file_6mA 41 2  
 3.	The m6A predicting model  
-		python smep_prediction_py2.7.py example_Test_file_m6A example_Train_file_m6A 800 2  
+python smep_train_py2.7.py example_Test_file_m6A example_Train_file_m6A 800 2  
 4.	The histone H3 lysine-4 trimethylation (H3K4me3) predicting model  
-		python smep_prediction_py2.7.py example_Test_file_H3K4me3 example_Train_file_H3K4me3 800 2  
+python smep_train_py2.7.py example_Test_file_H3K4me3 example_Train_file_H3K4me3 800 2  
 5.	The histone H3 lysine-27 trimethylation (H3K27me3) predicting model  
-		python smep_prediction_py2.7.py example_Test_file_H3K27me3 example_Train_file_H3K27me3 800 2  
+python smep_train_py2.7.py example_Test_file_H3K27me3 example_Train_file_H3K27me3 800 2  
 6.	The histone H3 lysine-9 acetylation (H3K9ac) predicting model  
-		python smep_prediction_py2.7.py example_Test_file_H3K9ac example_Train_file_H3K9ac 800 2  
+python smep_train_py2.7.py example_Test_file_H3K9ac example_Train_file_H3K9ac 800 2  
 	The model file will be constructed in the current directory.  
- 
+
+Prediction
+====
+The program smep_prediction_py2.7.py or smep_prediction_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are three parameters that should be provided with the following order, input filename, model name and the sequence length.  
+Here are the examples to predict the modification sites in the python environment 2.7.  
+1.	Predicting the 5mC modification sites  
+python smep_prediction_py2.7.py example_Test_file_5mC example_Train_file_5mC 41 4  
+2.	Predicting the 6mA modification sites  
+python smep_prediction_py2.7.py example_Test_file_6mA example_Train_file_6mA 41 2  
+3.	Predicting the m6A modification sites  
+python smep_prediction_py2.7.py example_Test_file_m6A example_Train_file_m6A 800 2  
+4.	Predicting the histone H3 lysine-4 trimethylation (H3K4me3) modification sites  
+python smep_prediction_py2.7.py example_Test_file_H3K4me3 example_Train_file_H3K4me3 800 2  
+5.	Predicting the histone H3 lysine-27 trimethylation (H3K27me3) modification sites  
+python smep_prediction_py2.7.py example_Test_file_H3K27me3 example_Train_file_H3K27me3 800 2  
+6.	Predicting the histone H3 lysine-9 acetylation (H3K9ac) modification sites  
+python smep_prediction_py2.7.py example_Test_file_H3K9ac example_Train_file_H3K9ac 800 2  
+
