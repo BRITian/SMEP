@@ -54,6 +54,6 @@ python smep_prediction_py2.7.py example_Test_file_H3K27me3 example_Train_file_H3
 python smep_prediction_py2.7.py example_Test_file_H3K9ac example_Train_file_H3K9ac 800 2  
   
   The predicted results were saved in the file at the directory of ‘pres’. In the predicted file, the first and second columns are the sequence number and the predicted flag for the modification marker. The flag and its corresponding modification were shown as the followings. 
-1.	5mC, 0 (No modification), 1 (CG), 2(CHG), 3(CHH).
+1.	5mC, 0 (Non-modification), 1 (CG), 2(CHG), 3(CHH).
 2.	For the other modifications (6mA, m6A, H3K4me3, H3K27me3 and H3K9ac), the number 0 and 1 represented the non-modification and modification, respectively. 
 
