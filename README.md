@@ -19,8 +19,7 @@ Quick Start
 
 Training
 ====
-
-The program smep_train_py2.7.py or smep_train_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are four parameters that should be provided with the following order, training filename, test filename, sequence length and class number of the model.  
+The program smep_train_py2.7.py or smep_train_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are four parameters that should be provided with the following order, training filename, test filename, sequence length and class number of the model. In the coding file, the first coloum is the label of the sequence, which is the modified or unmodified state. The followings in the line is the coding data, and each nucleotide is encoded as a number, which the A is encoded as the 0, T is encoded as 1, C is encoded as 2 and G is encoed as 3. 
 The followings are the examples to construct the predicting models in the python environment 2.7.  
 1.	The 5mC predicting model  
 python smep_train_py2.7.py example_Test_file_5mC example_Train_file_5mC 41 4  
