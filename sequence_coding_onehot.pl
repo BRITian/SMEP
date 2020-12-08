@@ -21,19 +21,19 @@ while(defined($line=<in>)){
 			
 			$tar_nuc=substr($tar_seq,$i,1);
 			if($tar_nuc eq "A"){
-				print out "0 ";
-				next;
-			}
-			if($tar_nuc eq "T"){
 				print out "1 ";
 				next;
 			}
-			if($tar_nuc eq "G"){
+			if($tar_nuc eq "T"){
 				print out "2 ";
 				next;
 			}
-			if($tar_nuc eq "C"){
+			if($tar_nuc eq "G"){
 				print out "3 ";
+				next;
+			}
+			if($tar_nuc eq "C"){
+				print out "4 ";
 				next;
 			}
 			print out "4 ";
