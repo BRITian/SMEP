@@ -9,7 +9,7 @@ System requirement
 3. keras 2.3.1
 4. theano 1.0.4
 
-Quick Start
+Quick Start to install the required program
 ====
 1. Install the python 2.7 or 3.5 from Anaconda https://www.anaconda.com/
 2. pip install tensorflow==2.0.0
@@ -17,7 +17,7 @@ Quick Start
 4. pip install theano==1.0.4
 5. git clone https://github.com/BRITian/smep
 
-Training
+Training models
 ====
 The program smep_train_py2.7.py or smep_train_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are four parameters that should be provided with the following order, training filename, test filename, sequence length and class number of the model. In the coding file, the first coloum is the label of the sequence, which is the modified or unmodified state. The followings in the line is the coding data, and each nucleotide is encoded as a number, which the A is encoded as the 0, T is encoded as 1, C is encoded as 2 and G is encoed as 3. 
 The followings are the examples to construct the predicting models in the python environment 2.7.  
@@ -35,7 +35,7 @@ python smep_train_py2.7.py example_Test_file_H3K27me3 example_Train_file_H3K27me
 python smep_train_py2.7.py example_Test_file_H3K9ac example_Train_file_H3K9ac 800 2  
 	The model file will be constructed in the current directory.  
 
-Prediction
+Prediction the modifications in the sequence
 ====
 The program smep_prediction_py2.7.py or smep_prediction_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are three parameters that should be provided with the following order, input filename, model name and the sequence length.  
 The followings are the examples to predict the modification sites in the python environment 2.7.  
