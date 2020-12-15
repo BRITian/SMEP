@@ -52,7 +52,7 @@ tar_pre = np.argmax(y_pred, axis=1)
 
 pre_id=0
 for x in y_pred:
-	tar_pres=str(pre_id+1) + "\t" + str(tar_pre[pre_id])+ "\t"
+	tar_pres=str(pre_id)+"\t"+str(x[tar_pre[pre_id]])+"\t" +str(tar_pre[pre_id])+"\t"
 	#print >>fout, tar_pre
 	for y in x:
 		tar_value="%.4f" % float(y)

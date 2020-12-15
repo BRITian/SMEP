@@ -28,6 +28,7 @@ if not os.path.exists(tar_dir_pres):
 
 train_data = pd.read_csv(infile_prediction, index_col = False, header=None)
 x_train_ori=train_data[1]
+#y_train_ori=train_data[0]
 
 x_train=[]
 for pi in x_train_ori:
@@ -36,6 +37,8 @@ for pi in x_train_ori:
 	x_train.append(ndata)
 x_train=np.array(x_train)
 x_train=sequence.pad_sequences(x_train,maxlen=max_seq_len)
+
+#print x_train
 
 tar_log_file="./pres/"+"Pres."+infile_prediction +"_model_"+in_model
 
@@ -52,12 +55,12 @@ tar_pre = np.argmax(y_pred, axis=1)
 pre_id=0
 for x in y_pred:
 	tar_pres=str(tar_pre[pre_id])+"\t"
-	pre_id=pre_id+1
 	#print >>fout, tar_pre
 	for y in x:
 		tar_value="%.4f" % float(y)
 		tar_pres=tar_pres + tar_value + "\t"
-	print >>fout, pre_id,"\t",tar_pres
+	print >>fout, pre_id,"\t",x[tar_pre[pre_id]],"\t",tar_pres
+	pre_id=pre_id+1
 
 del model
 fout.close()
