@@ -55,6 +55,6 @@ perl smep_prediction.pl -I test_ H3K9ac.fasta -O test_ H3K9ac.out -T H3K9ac
   
   
 The predicted results were saved in the output file. In the predicted file, the first column is the fragment number. The second and third column are the sequence ID and the location of the first nucleic acid in the fragment. The fourth and fifth columns are the predicted flag for the modification marker and the probability. The sixth column is the sequence of the fragment. The flag and its corresponding modification were shown as the followings.   
-1.	5mC, 0 (No modification), 1 (), 2, 3.  
+1.	5mC, 0 (No modification), 1 (CG), 2(CHG), 3(CHH).  
 2.	For the other modifications (6mA, m6A, H3K4me3, H3K27me3 and H3K9ac), the number 0 and 1 represented the non-modification and modification, respectively.   
 
