@@ -37,24 +37,24 @@ python smep_train_py2.7.py example_Test_file_H3K9ac example_Train_file_H3K9ac 80
 
 Prediction the modifications in the sequence
 ====
-The main program smep_prediction.pl could be used to predict the modification in the sequence. There are three parameters (-I -T -O) that should be provided.
+The main program smep_prediction.pl could be used to predict the modification in the sequence. There are three parameters (-I -T -O) that should be provided.  
 
-perl smep_prediction.pl -I input_fasta_sequence -T modification_type -O output_file
+perl smep_prediction.pl -I input_fasta_sequence -T modification_type -O output_file  
 
--I, The input sequence with fasta format
--T, The epigenetic modification type. There are six pre-constructed models (5mC, 6mA, m6A, H3K27me3, H3K4me3 or H3K9ac). 
--O, The output file
+-I, The input sequence with fasta format  
+-T, The epigenetic modification type. There are six pre-constructed models (5mC, 6mA, m6A, H3K27me3, H3K4me3 or H3K9ac)     
+-O, The output file  
 
-The followings are some command examples.
-perl smep_prediction.pl -I test_5mC.fasta -O test_5mC.out -T 5mC
-perl smep_prediction.pl -I test_6mA.fasta -O test_6mA.out -T 6mA
-perl smep_prediction.pl -I test_m6A.fasta -O test_m6A.out -T m6A
-perl smep_prediction.pl -I test_ H3K27me3.fasta -O test_ H3K27me3.out -T H3K27me3
-perl smep_prediction.pl -I test_ H3K4me3.fasta -O test_ H3K4me3.out -T H3K4me3
-perl smep_prediction.pl -I test_ H3K9ac.fasta -O test_ H3K9ac.out -T H3K9ac
-
-
-The predicted results were saved in the output file. In the predicted file, the first column is the fragment number. The second and third column are the sequence ID and the location of the first nucleic acid in the fragment. The fourth and fifth columns are the predicted flag for the modification marker and the probability. The sixth column is the sequence of the fragment. The flag and its corresponding modification were shown as the followings. 
-1.	5mC, 0 (No modification), 1 (), 2, 3.
-2.	For the other modifications (6mA, m6A, H3K4me3, H3K27me3 and H3K9ac), the number 0 and 1 represented the non-modification and modification, respectively. 
+The followings are some command examples.  
+perl smep_prediction.pl -I test_5mC.fasta -O test_5mC.out -T 5mC  
+perl smep_prediction.pl -I test_6mA.fasta -O test_6mA.out -T 6mA  
+perl smep_prediction.pl -I test_m6A.fasta -O test_m6A.out -T m6A  
+perl smep_prediction.pl -I test_ H3K27me3.fasta -O test_ H3K27me3.out -T H3K27me3  
+perl smep_prediction.pl -I test_ H3K4me3.fasta -O test_ H3K4me3.out -T H3K4me3  
+perl smep_prediction.pl -I test_ H3K9ac.fasta -O test_ H3K9ac.out -T H3K9ac  
+  
+  
+The predicted results were saved in the output file. In the predicted file, the first column is the fragment number. The second and third column are the sequence ID and the location of the first nucleic acid in the fragment. The fourth and fifth columns are the predicted flag for the modification marker and the probability. The sixth column is the sequence of the fragment. The flag and its corresponding modification were shown as the followings.   
+1.	5mC, 0 (No modification), 1 (), 2, 3.  
+2.	For the other modifications (6mA, m6A, H3K4me3, H3K27me3 and H3K9ac), the number 0 and 1 represented the non-modification and modification, respectively.   
 
