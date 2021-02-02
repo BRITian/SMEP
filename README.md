@@ -12,7 +12,7 @@ System requirement
 Quick Start to install the required program
 ====
 1. Install the python 2.7 or 3.5 from Anaconda https://www.anaconda.com/
-2. pip install tensorflow==2.0.0
+2. pip install tensorflow==2.0.0 (python=2.7) or pip install tensorflow==2.0.0-alpha0 (python=3.5)
 3. pip install keras==2.3.1
 4. pip install theano==1.0.4
 5. git clone https://github.com/BRITian/smep
@@ -22,17 +22,17 @@ Training models
 The program smep_train_py2.7.py or smep_train_py3.5.py was used to train the prediction model, in the python environment 2.7 or 3.5, respectively. There are four parameters that should be provided with the following order, training filename, test filename, sequence length and class number of the model. In the coding file, the first coloum is the label of the sequence, which is the modified or unmodified state. The followings in the line is the coding data, and each nucleotide is encoded as a number, which the A is encoded as the 0, T is encoded as 1, C is encoded as 2 and G is encoed as 3. 
 The followings are the examples to construct the predicting models in the python environment 2.7.  
 1.	The 5mC predicting model  
-python smep_train_py2.7.py example_Train_file_5mC example_Test_file_5mC 41 4  
+python smep_train_models_py2.7.py example_Train_file_5mC example_Test_file_5mC model.h5 41 4  
 2.	The 6mA predicting model  
-python smep_train_py2.7.py example_Train_file_6mA example_Test_file_6mA 41 2  
+python smep_train_models_py2.7.py example_Train_file_6mA example_Test_file_6mA model.h5 41 2  
 3.	The m6A predicting model  
-python smep_train_py2.7.py example_Train_file_m6A example_Test_file_m6A 800 2  
+python smep_train_models_py2.7.py example_Train_file_m6A example_Test_file_m6A model.h5 800 2  
 4.	The histone H3 lysine-4 trimethylation (H3K4me3) predicting model  
-python smep_train_py2.7.py example_Train_file_H3K4me3 example_Test_file_H3K4me3 800 2  
+python smep_train_models_py2.7.py example_Train_file_H3K4me3 example_Test_file_H3K4me3 model.h5 800 2  
 5.	The histone H3 lysine-27 trimethylation (H3K27me3) predicting model  
-python smep_train_py2.7.py example_Train_file_H3K27me3 example_Test_file_H3K27me3 800 2  
+python smep_train_models_py2.7.py example_Train_file_H3K27me3 example_Test_file_H3K27me3 model.h5 800 2  
 6.	The histone H3 lysine-9 acetylation (H3K9ac) predicting model  
-python smep_train_py2.7.py example_Train_file_H3K9ac example_Test_file_H3K9ac 800 2  
+python smep_train_models_py2.7.py example_Train_file_H3K9ac example_Test_file_H3K9ac model.h5 800 2  
 
 The model file will be constructed in the current directory.  
 	
