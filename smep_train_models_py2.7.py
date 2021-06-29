@@ -109,22 +109,206 @@ y_test = np_utils.to_categorical(y_test, class_num)
 x_train=sequence.pad_sequences(x_train,maxlen=max_seq_len)
 x_test=sequence.pad_sequences(x_test,maxlen=max_seq_len)
 
-model = Sequential()
-model.add(Embedding(aan, aan, input_length=max_seq_len))
-model.add(Conv1D(filters=64, kernel_size=3, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=maxnorm(3),bias_constraint=maxnorm(3)))
-model.add(MaxPooling1D(pool_size=2))
-model.add(Dropout(0.20))
-model.add(Conv1D(filters=128, kernel_size=3, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=maxnorm(3),bias_constraint=maxnorm(3)))
-model.add(MaxPooling1D(pool_size=2))
-model.add(Dropout(0.20))
+markertype = str(in_train_file.split('_')[3])
+if markertype=="6mA" or markertype=="5mC":
+	batch_size = 64
+	filter1=256
+	filter2=256
+	kernel_size1=3
+	kernel_size2=15
+	dense_units1=32
+	dense_units2=32
+	dense_units3=1024
+	activation1='sigmoid'
+	activation2='relu'
+	activation3='relu'
+	Dropout1=0.000102345
+	Dropout2=0.360944525
+	Dropout3=0.214614745
+	Dropout4=0.276954571
+	Dropout5=0.139639848
+	model = Sequential()
+	model.add(Embedding(aan, aan, input_length=max_seq_len))
+	model.add(Dropout(Dropout1))
+	model.add(Conv1D(filters=filter1, kernel_size=kernel_size1, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout2))
+	model.add(Conv1D(filters=filter2, kernel_size=kernel_size2, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout3))
 
-model.add(Flatten())
+	model.add(Flatten())
 
-model.add(Dense(64, activation='relu',kernel_initializer='random_uniform', kernel_constraint=maxnorm(3),bias_constraint=maxnorm(3)))
-model.add(Dropout(0.20))
-model.add(Dense(32, activation='relu',kernel_initializer='random_uniform', kernel_constraint=maxnorm(3),bias_constraint=maxnorm(3)))
-model.add(Dropout(0.20))
-model.add(Dense(class_num, activation='softmax'))
+	model.add(Dense(units=dense_units1, activation=activation1,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout4))
+	model.add(Dense(units=dense_units2, activation=activation2,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout5))
+	# model.add(Dense(100))
+	# We can also choose between complete sets of layers
+	# model.add(Dense(units=dense_units3, activation=activation3,
+			# kernel_initializer='random_uniform', kernel_constraint=maxnorm(3),
+			# bias_constraint=maxnorm(3)))
+	model.add(Dense(class_num, activation='softmax'))
+elif markertype=="m6A" :
+	batch_size = 128
+	filter1=256
+	filter2=128
+	kernel_size1=9
+	kernel_size2=21
+	dense_units1=256
+	dense_units2=64
+	dense_units3=32
+	activation1='sigmoid'
+	activation2='relu'
+	activation3='relu'
+	Dropout1=0.321009349
+	Dropout2=0.345599809
+	Dropout3=0.481368131
+	Dropout4=0.261986058
+	Dropout5=0.490896792
+	model = Sequential()
+	model.add(Embedding(aan, aan, input_length=max_seq_len))
+	model.add(Dropout(Dropout1))
+	model.add(Conv1D(filters=filter1, kernel_size=kernel_size1, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout2))
+	model.add(Conv1D(filters=filter2, kernel_size=kernel_size2, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout3))
+
+	model.add(Flatten())
+
+	model.add(Dense(units=dense_units1, activation=activation1,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout4))
+	model.add(Dense(units=dense_units2, activation=activation2,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout5))
+	model.add(Dense(100))
+	#We can also choose between complete sets of layers
+	model.add(Dense(units=dense_units3, activation=activation3,
+			kernel_initializer='random_uniform', kernel_constraint=max_norm(3),
+			bias_constraint=max_norm(3)))
+	model.add(Dense(class_num, activation='softmax'))
+
+elif markertype=="H3K4me3" :
+	batch_size = 128
+	filter1=256
+	filter2=256
+	kernel_size1=21
+	kernel_size2=21
+	dense_units1=512
+	dense_units2=64
+	dense_units3=1024
+	activation1='sigmoid'
+	activation2='relu'
+	activation3='relu'
+	Dropout1=0.235031256
+	Dropout2=0.196249702
+	Dropout3=0.241327233
+	Dropout4=0.19553612
+	Dropout5=0.235023429
+	model = Sequential()
+	model.add(Embedding(aan, aan, input_length=max_seq_len))
+	model.add(Dropout(Dropout1))
+	model.add(Conv1D(filters=filter1, kernel_size=kernel_size1, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout2))
+	model.add(Conv1D(filters=filter2, kernel_size=kernel_size2, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout3))
+
+	model.add(Flatten())
+
+	model.add(Dense(units=dense_units1, activation=activation1,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout4))
+	model.add(Dense(units=dense_units2, activation=activation2,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout5))
+	model.add(Dense(100))
+	#We can also choose between complete sets of layers
+	model.add(Dense(units=dense_units3, activation=activation3,
+			kernel_initializer='random_uniform', kernel_constraint=max_norm(3),
+			bias_constraint=max_norm(3)))
+	model.add(Dense(class_num, activation='softmax'))
+
+elif markertype=="H3K27me3" :
+	batch_size = 128
+	filter1=256
+	filter2=128
+	kernel_size1=9
+	kernel_size2=21
+	dense_units1=256
+	dense_units2=64
+	dense_units3=32
+	activation1='sigmoid'
+	activation2='relu'
+	activation3='relu'
+	Dropout1=0.201682248
+	Dropout2=0.242666349
+	Dropout3=0.468946885
+	Dropout4=0.103310097
+	Dropout5=0.484827986
+	model = Sequential()
+	model.add(Embedding(aan, aan, input_length=max_seq_len))
+	model.add(Dropout(Dropout1))
+	model.add(Conv1D(filters=filter1, kernel_size=kernel_size1, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout2))
+	model.add(Conv1D(filters=filter2, kernel_size=kernel_size2, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout3))
+
+	model.add(Flatten())
+
+	model.add(Dense(units=dense_units1, activation=activation1,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout4))
+	model.add(Dense(units=dense_units2, activation=activation2,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout5))
+	model.add(Dense(100))
+	#We can also choose between complete sets of layers
+	model.add(Dense(units=dense_units3, activation=activation3,
+			kernel_initializer='random_uniform', kernel_constraint=max_norm(3),
+			bias_constraint=max_norm(3)))
+	model.add(Dense(class_num, activation='softmax'))
+
+elif markertype=="H3K9ac" :
+	batch_size = 128
+	filter1=256
+	filter2=256
+	kernel_size1=21
+	kernel_size2=21
+	dense_units1=512
+	dense_units2=64
+	dense_units3=1024
+	activation1='sigmoid'
+	activation2='relu'
+	activation3='relu'
+	Dropout1=0.235031256
+	Dropout2=0.196249702
+	Dropout3=0.241327233
+	Dropout4=0.19553612
+	Dropout5=0.235023429
+	model = Sequential()
+	model.add(Embedding(aan, aan, input_length=max_seq_len))
+	model.add(Dropout(Dropout1))
+	model.add(Conv1D(filters=filter1, kernel_size=kernel_size1, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout2))
+	model.add(Conv1D(filters=filter2, kernel_size=kernel_size2, activation='relu',padding='same',kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(MaxPooling1D(pool_size=2))
+	model.add(Dropout(Dropout3))
+
+	model.add(Flatten())
+
+	model.add(Dense(units=dense_units1, activation=activation1,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout4))
+	model.add(Dense(units=dense_units2, activation=activation2,kernel_initializer='random_uniform', kernel_constraint=max_norm(3),bias_constraint=max_norm(3)))
+	model.add(Dropout(Dropout5))
+	model.add(Dense(100))
+	#We can also choose between complete sets of layers
+	model.add(Dense(units=dense_units3, activation=activation3,
+			kernel_initializer='random_uniform', kernel_constraint=max_norm(3),
+			bias_constraint=max_norm(3)))
+	model.add(Dense(class_num, activation='softmax'))
+
 
 checkpoint = ModelCheckpoint(model_filepath, monitor='val_accuracy', verbose=1, save_best_only=True,mode='max')
 callbacks_list = [checkpoint]
