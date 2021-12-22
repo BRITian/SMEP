@@ -1,4 +1,4 @@
-# SMOC
+# SMEP
 Smart Model for Epigenetics in Plants
 
 Introduction
